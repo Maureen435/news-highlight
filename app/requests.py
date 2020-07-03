@@ -31,4 +31,34 @@ def get_sources(category):
 
             return sources_results
 
-def process_sources
+def process_sources(sources_list):
+    sources_results = []
+
+    for source_item in sources_list:
+        id = source_item.get('id')
+        name = source_item.get('name')
+        description = source_item.get('description')
+        url = source_item.get('url')
+        category = source_item.get('category')
+        language = source_item.get('language')
+        country = source_item.get('country')
+
+        sources_object = Sources(id,name,description,url,category,country,language)
+        source_results.append(sources_object)
+
+    return sources_results
+
+def get_articles(id):
+    get_articles_url = articles_url.format(id,api_key)
+
+    with urllib.request.urlopen(get_articles_url) as url:
+        articles_results = json.loads(url.read())
+
+        articles_object = None
+        if articles_results['articles']:
+            articles_object = process_articles(articles_results['articles'])
+
+        return articles_object 
+
+def process_articles(articles_list):
+    
