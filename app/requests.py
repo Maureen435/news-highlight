@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import sources,Articles
+from .models import Sources,Articles
 from datetime import datetime
 
 #getting the api key

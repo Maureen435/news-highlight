@@ -14,7 +14,7 @@ def create_app(config_name):
     bootstrap.init_app(app)
 
     #registering the blueprint
-    from.requests import configure_requests
+    from .requests import configure_request
     configure_request(app)
 
     return app
