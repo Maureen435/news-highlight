@@ -1,20 +1,21 @@
-from flask import Flask 
-from flask_bootstrap import Bootstrap 
-from config import config_options
+import os
 
-bootstrap = Bootstrap()
+class Config:
 
-def create_app(config_name):
-    app = Flask(__name__)
+    NEWS_SOURCES_BASE_URL ='https://newsapi.org/v2/sources?language=eb&category={}&apiKey{}'
+    ARTICLES_BASE_URL ='https://newsapi.org/v2/everything?language=en&sources={}&apiKey={}'
+    NEWS_API_KEY =os.environ.get('NEWS_API_KEY')
+    @staticmethod
+    def init_app(app):
+        pass
 
-    #create the app configurations
-    app.config.from_object(config_options[config_name])
+class ProdConfig(Config):
+    pass
 
-    #initializing flask extensions
-    bootstrap.init_app(app)
+class DevConfig(Config):
+    DEBUG = True
 
-    #registering the blueprint
-    from.requests import configure_requests
-    configure_request(app)
-
-    return app
+config_options = {
+    'development':DevConfig,
+    'production':ProdConfig
+}
