@@ -6,7 +6,7 @@ Maureen Chepkemoi
 
 ### Description
 The app enables users to see news sources and articles.
-The link to live site is https://tranquil-coast-06569.herokuapp.com/
+The link to live site is https://news-app-435.herokuapp.com/
 
 ### Setup and installation
 1. clone or download and unzip the repository from github https://github.com/Maureen435/news-highlight.git
